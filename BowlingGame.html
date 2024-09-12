@@ -37,7 +37,7 @@
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rolls&nbsp;(list):&nbsp;Records&nbsp;the&nbsp;number&nbsp;of&nbsp;pins&nbsp;dropped&nbsp;in&nbsp;each&nbsp;roll&nbsp;during&nbsp;a&nbsp;game</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-frameScore"><strong>frameScore</strong></a>(self, rollIndex)</dt><dd><span class="code">In&nbsp;bowling,&nbsp;each&nbsp;round&nbsp;consists&nbsp;of&nbsp;two&nbsp;rolls,&nbsp;this&nbsp;function&nbsp;adds&nbsp;together&nbsp;the&nbsp;two&nbsp;rolls&nbsp;in&nbsp;a&nbsp;single&nbsp;round&nbsp;and&nbsp;returns&nbsp;the&nbsp;resulting&nbsp;score<br>
+<dl><dt><a name="BowlingGame-frame_score"><strong>frame_score</strong></a>(self, roll_index)</dt><dd><span class="code">In&nbsp;bowling,&nbsp;each&nbsp;round&nbsp;consists&nbsp;of&nbsp;two&nbsp;rolls,&nbsp;this&nbsp;function&nbsp;adds&nbsp;together&nbsp;the&nbsp;two&nbsp;rolls&nbsp;in&nbsp;a&nbsp;single&nbsp;round&nbsp;and&nbsp;returns&nbsp;the&nbsp;resulting&nbsp;score<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rollIndex&nbsp;(int):&nbsp;The&nbsp;index&nbsp;being&nbsp;chosen&nbsp;in&nbsp;the&nbsp;'rolls'&nbsp;list<br>
@@ -45,7 +45,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;int:&nbsp;The&nbsp;combined&nbsp;total&nbsp;of&nbsp;the&nbsp;two&nbsp;rolls&nbsp;in&nbsp;a&nbsp;single&nbsp;round</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-isSpare"><strong>isSpare</strong></a>(self, rollIndex)</dt><dd><span class="code">The&nbsp;function&nbsp;determines&nbsp;whether&nbsp;the&nbsp;two&nbsp;chosen&nbsp;consecutive&nbsp;rolls&nbsp;is&nbsp;a&nbsp;spare.&nbsp;a&nbsp;spare&nbsp;is&nbsp;when&nbsp;you&nbsp;don't&nbsp;knock&nbsp;down&nbsp;all&nbsp;the&nbsp;pins&nbsp;on&nbsp;your&nbsp;first&nbsp;roll,&nbsp;but&nbsp;knock&nbsp;down&nbsp;the&nbsp;remaining&nbsp;pins&nbsp;on&nbsp;your&nbsp;second&nbsp;roll,&nbsp;therefore&nbsp;achieving&nbsp;the&nbsp;max&nbsp;score&nbsp;of&nbsp;10.<br>
+<dl><dt><a name="BowlingGame-is_spare"><strong>is_spare</strong></a>(self, roll_index)</dt><dd><span class="code">The&nbsp;function&nbsp;determines&nbsp;whether&nbsp;the&nbsp;two&nbsp;chosen&nbsp;consecutive&nbsp;rolls&nbsp;is&nbsp;a&nbsp;spare.&nbsp;a&nbsp;spare&nbsp;is&nbsp;when&nbsp;you&nbsp;don't&nbsp;knock&nbsp;down&nbsp;all&nbsp;the&nbsp;pins&nbsp;on&nbsp;your&nbsp;first&nbsp;roll,&nbsp;but&nbsp;knock&nbsp;down&nbsp;the&nbsp;remaining&nbsp;pins&nbsp;on&nbsp;your&nbsp;second&nbsp;roll,&nbsp;therefore&nbsp;achieving&nbsp;the&nbsp;max&nbsp;score&nbsp;of&nbsp;10.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rollIndex&nbsp;(int):&nbsp;The&nbsp;index&nbsp;being&nbsp;checked&nbsp;in&nbsp;the&nbsp;'rolls'&nbsp;list<br>
@@ -53,7 +53,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;Whether&nbsp;or&nbsp;not&nbsp;the&nbsp;chosen&nbsp;roll&nbsp;meets&nbsp;the&nbsp;condition&nbsp;for&nbsp;being&nbsp;considered&nbsp;a&nbsp;spare</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-isStrike"><strong>isStrike</strong></a>(self, rollIndex)</dt><dd><span class="code">The&nbsp;function&nbsp;determines&nbsp;whether&nbsp;a&nbsp;chosen&nbsp;roll&nbsp;is&nbsp;a&nbsp;strike.&nbsp;a&nbsp;strike&nbsp;is&nbsp;when&nbsp;you&nbsp;knock&nbsp;down&nbsp;all&nbsp;the&nbsp;pins,&nbsp;therefore&nbsp;achieving&nbsp;the&nbsp;max&nbsp;score&nbsp;of&nbsp;10.<br>
+<dl><dt><a name="BowlingGame-is_strike"><strong>is_strike</strong></a>(self, roll_index)</dt><dd><span class="code">The&nbsp;function&nbsp;determines&nbsp;whether&nbsp;a&nbsp;chosen&nbsp;roll&nbsp;is&nbsp;a&nbsp;strike.&nbsp;a&nbsp;strike&nbsp;is&nbsp;when&nbsp;you&nbsp;knock&nbsp;down&nbsp;all&nbsp;the&nbsp;pins,&nbsp;therefore&nbsp;achieving&nbsp;the&nbsp;max&nbsp;score&nbsp;of&nbsp;10.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rollIndex&nbsp;(int):&nbsp;The&nbsp;index&nbsp;being&nbsp;checked&nbsp;in&nbsp;the&nbsp;'rolls'&nbsp;list<br>
@@ -61,7 +61,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;Whether&nbsp;or&nbsp;not&nbsp;the&nbsp;chosen&nbsp;roll&nbsp;meets&nbsp;the&nbsp;condition&nbsp;for&nbsp;being&nbsp;considered&nbsp;a&nbsp;strike</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-roll"><strong>roll</strong></a>(self, pins)</dt><dd><span class="code">The&nbsp;function&nbsp;adds&nbsp;the&nbsp;new&nbsp;score&nbsp;to&nbsp;the&nbsp;'rolls'&nbsp;list.&nbsp;This&nbsp;needs&nbsp;to&nbsp;be&nbsp;done&nbsp;as&nbsp;'rolls'&nbsp;is&nbsp;a&nbsp;local&nbsp;variable,&nbsp;and&nbsp;therefore&nbsp;not&nbsp;accessible&nbsp;from&nbsp;exterior&nbsp;scripts<br>
+<dl><dt><a name="BowlingGame-roll"><strong>roll</strong></a>(self, pins)</dt><dd><span class="code">If&nbsp;the&nbsp;number&nbsp;of&nbsp;pins&nbsp;given&nbsp;is&nbsp;a&nbsp;valid&nbsp;input,&nbsp;the&nbsp;function&nbsp;adds&nbsp;the&nbsp;new&nbsp;score&nbsp;to&nbsp;the&nbsp;'rolls'&nbsp;list.&nbsp;This&nbsp;needs&nbsp;to&nbsp;be&nbsp;done&nbsp;as&nbsp;'rolls'&nbsp;is&nbsp;a&nbsp;local&nbsp;variable,&nbsp;and&nbsp;therefore&nbsp;not&nbsp;accessible&nbsp;from&nbsp;exterior&nbsp;scripts.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pins&nbsp;(float):&nbsp;The&nbsp;given&nbsp;value&nbsp;of&nbsp;how&nbsp;many&nbsp;pins&nbsp;were&nbsp;knocked&nbsp;down&nbsp;in&nbsp;a&nbsp;single&nbsp;roll</span></dd></dl>
@@ -75,7 +75,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;int:&nbsp;The&nbsp;combined&nbsp;total&nbsp;of&nbsp;the&nbsp;two&nbsp;rolls&nbsp;in&nbsp;a&nbsp;single&nbsp;round</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-spareScore"><strong>spareScore</strong></a>(self, rollIndex)</dt><dd><span class="code">In&nbsp;the&nbsp;event&nbsp;of&nbsp;a&nbsp;spare,&nbsp;the&nbsp;function&nbsp;determines&nbsp;how&nbsp;much&nbsp;the&nbsp;score&nbsp;increases<br>
+<dl><dt><a name="BowlingGame-spare_score"><strong>spare_score</strong></a>(self, roll_index)</dt><dd><span class="code">In&nbsp;the&nbsp;event&nbsp;of&nbsp;a&nbsp;spare,&nbsp;the&nbsp;function&nbsp;determines&nbsp;how&nbsp;much&nbsp;the&nbsp;score&nbsp;increases<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rollIndex&nbsp;(int):&nbsp;The&nbsp;index&nbsp;being&nbsp;chosen&nbsp;in&nbsp;the&nbsp;'rolls'&nbsp;list<br>
@@ -83,7 +83,7 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;int:&nbsp;The&nbsp;score&nbsp;of&nbsp;10,&nbsp;plus&nbsp;the&nbsp;next&nbsp;roll&nbsp;that&nbsp;isn't&nbsp;involved&nbsp;in&nbsp;the&nbsp;spare</span></dd></dl>
 
-<dl><dt><a name="BowlingGame-strikeScore"><strong>strikeScore</strong></a>(self, rollIndex)</dt><dd><span class="code">In&nbsp;the&nbsp;event&nbsp;of&nbsp;a&nbsp;strike,&nbsp;the&nbsp;function&nbsp;determines&nbsp;how&nbsp;much&nbsp;the&nbsp;score&nbsp;increases<br>
+<dl><dt><a name="BowlingGame-strike_score"><strong>strike_score</strong></a>(self, roll_index)</dt><dd><span class="code">In&nbsp;the&nbsp;event&nbsp;of&nbsp;a&nbsp;strike,&nbsp;the&nbsp;function&nbsp;determines&nbsp;how&nbsp;much&nbsp;the&nbsp;score&nbsp;increases<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rollIndex&nbsp;(int):&nbsp;The&nbsp;index&nbsp;being&nbsp;chosen&nbsp;in&nbsp;the&nbsp;'rolls'&nbsp;list<br>

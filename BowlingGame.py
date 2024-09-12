@@ -13,11 +13,13 @@ class BowlingGame:
 
     def roll(self,pins):
         '''
-        The function adds the new score to the 'rolls' list. This needs to be done as 'rolls' is a local variable, and therefore not accessible from exterior scripts
+        If the number of pins given is a valid input, the function adds the new score to the 'rolls' list. This needs to be done as 'rolls' is a local variable, and therefore not accessible from exterior scripts.
         
         Args:
             pins (float): The given value of how many pins were knocked down in a single roll
         '''
+        if pins<0 or pins>10:
+            raise ValueError("Pins must be between 0 and 10.")
         self.rolls.append(pins)
 
     def score(self):
@@ -32,20 +34,20 @@ class BowlingGame:
             int: The combined total of the two rolls in a single round
         '''
         result = 0
-        rollIndex=0
-        for frameIndex in range(10):
-            if self.isStrike(rollIndex):
-                result += self.strikeScore(rollIndex)
-                rollIndex +=1
-            elif self.isSpare(rollIndex):
-                result += self.spareScore(rollIndex)
-                rollIndex +=2
+        roll_index=0
+        for frame_index in range(10):
+            if self.is_strike(roll_index):
+                result += self.strike_score(roll_index)
+                roll_index +=1
+            elif self.is_spare(roll_index):
+                result += self.spare_score(roll_index)
+                roll_index +=2
             else:
-                result += self.frameScore(rollIndex)
-                rollIndex +=2
+                result += self.frame_score(roll_index)
+                roll_index +=2
         return result
 
-    def isStrike(self, rollIndex):
+    def is_strike(self, roll_index):
         '''
         The function determines whether a chosen roll is a strike. a strike is when you knock down all the pins, therefore achieving the max score of 10.
         
@@ -55,8 +57,8 @@ class BowlingGame:
         Returns:
             bool: Whether or not the chosen roll meets the condition for being considered a strike
         '''
-        return self.rolls[rollIndex] == 10
-    def isSpare(self, rollIndex):
+        return self.rolls[roll_index] == 10
+    def is_spare(self, roll_index):
         '''
         The function determines whether the two chosen consecutive rolls is a spare. a spare is when you don't knock down all the pins on your first roll, but knock down the remaining pins on your second roll, therefore achieving the max score of 10.
         
@@ -66,8 +68,8 @@ class BowlingGame:
         Returns:
             bool: Whether or not the chosen roll meets the condition for being considered a spare
         '''
-        return self.rolls[rollIndex]+ self.rolls[rollIndex+1]==10
-    def strikeScore(self,rollIndex):
+        return self.rolls[roll_index]+ self.rolls[roll_index+1]==10
+    def strike_score(self,roll_index):
         '''
         In the event of a strike, the function determines how much the score increases
         
@@ -77,9 +79,9 @@ class BowlingGame:
         Returns:
             int: The score of 10, plus the next two rolls
         '''
-        return  10+ self.rolls[rollIndex+1]+ self.rolls[rollIndex+2]
+        return  10+ self.rolls[roll_index+1]+ self.rolls[roll_index+2]
 
-    def spareScore(self,rollIndex):
+    def spare_score(self,roll_index):
         '''
         In the event of a spare, the function determines how much the score increases
         
@@ -89,9 +91,9 @@ class BowlingGame:
         Returns:
             int: The score of 10, plus the next roll that isn't involved in the spare
         '''
-        return  10+ self.rolls[rollIndex+2]
+        return  10+ self.rolls[roll_index+2]
 
-    def frameScore(self, rollIndex):
+    def frame_score(self, roll_index):
         '''
         In bowling, each round consists of two rolls, this function adds together the two rolls in a single round and returns the resulting score
         
@@ -101,4 +103,4 @@ class BowlingGame:
         Returns:
             int: The combined total of the two rolls in a single round
         '''
-        return self.rolls[rollIndex] + self.rolls[rollIndex + 1]
+        return self.rolls[roll_index] + self.rolls[roll_index + 1]
